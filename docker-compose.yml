@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - STRIPE_PUBLIC_KEY=ваш_публичный_ключ
+      - STRIPE_SECRET_KEY=ваш_секретный_ключ
+    volumes:
+      - .:/app
+    command: python manage.py runserver 0.0.0.0:8000
